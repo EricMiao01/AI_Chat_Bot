@@ -4,11 +4,12 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 # 載入 json 標準函式庫，處理回傳的資料格式
 import requests, json, time
+from dotenv import dotenv_values
 
 app = Flask(__name__)
 
-access_token = 'DmNJ+OQnnRv7W0q8vCqtiMV0teDV1UKWNCVt9acUxkXAdNkqaLwZIgZCiNmlb1Ks0pQXtBnbMsoF3Oss7QP/dowzxA/0yZqGTMyIbaXqdJbAkeUCZ2e+jghUGF6YnxfW9QzYR8VM62Qsqu8ikuDqIQdB04t89/1O/w1cDnyilFU='
-channel_secret = '1c204137165b50e8812555034f2e10d6'
+access_token = dotenv_values('.env')['LINE_ACCESS_TOKEN']
+channel_secret = dotenv_values('.env')['LINE_CHANELL_SECRET']
 
 @app.route("/", methods=['POST'])
 def linebott():
